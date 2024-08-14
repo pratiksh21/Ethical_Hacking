@@ -1,0 +1,24 @@
+#commands
+
+ sudo ip link set wlo1 down  // anything you change with your hardware you first have to turn off the hardware and make changes so that it can change effectively.
+ sudo macchanger -r wlo1   // it will change the mac address of your hardware
+ sudo macchanger -r wlo1  // this will change your new mac layer and also it will change the current mac layer.
+ ip link show wlo1  //change mac will shown if your're using this command
+
+
+
+ #automate this upper command by using these steps:
+
+ 1. gedit and make a file changemac.sh
+ 2.  macchanger wlo1 -m xx:xx:xx:xx:xx:xx
+ 3. ./changemac.sh   //check the file by using ./ and remeber to give sudo privileges
+ 4. crontab -e
+ 5. @reboot /home/Desktop/changemac.sh
+ 6. ctrl+s and ctrl +x to quit this file.
+ 7. service cron start
+ 8. systemctl start cron
+ 9. update-rc.d cron defaults
+10. reboot
+
+
+
